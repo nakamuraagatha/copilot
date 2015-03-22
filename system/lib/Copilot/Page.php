@@ -527,7 +527,7 @@ class Page {
         }
 
         if ($code) {
-            $meta += copi::$app->helper('yaml')->fromString($code);
+            $meta = array_merge($meta, copi::$app->helper('yaml')->fromString($code));
         }
 
         $meta = new \ContainerArray($meta);
@@ -555,7 +555,7 @@ class Page {
             }
 
             if (self::$metaCache[$metafile]) {
-                $meta += self::$metaCache[$metafile];
+                $meta = array_merge(self::$metaCache[$metafile], $meta);
             }
 
             $dir = dirname($dir);
