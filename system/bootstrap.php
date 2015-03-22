@@ -179,6 +179,19 @@ $copilot->service('renderer', function() use($copilot) {
 });
 
 /**
+ * return page in offline mode
+ */
+if ($copilot['offline']) {
+
+    $copilot->bind('/*', function() {
+
+        return copi::view('theme:offline.html');
+    });
+
+    return;
+}
+
+/**
  * load modules
  */
 $copilot->loadModules([CP_ROOT_DIR.'/system/modules', CP_ROOT_DIR.'/modules']);

@@ -5,9 +5,11 @@ return [
     // enable debug mode by default on local dev env:
     'debug'        => preg_match('/(localhost|::1|\.dev)$/', $_SERVER['SERVER_NAME']),
 
-    'app.name'     => 'site',
+    'offline'      => false,
+
+    'app.name'     => 'copilot',
     'timezone'     => 'UTC',
-    'site.title'   => 'Site',
+    'site.title'   => 'Copilot',
     'base_url'     => CP_BASE_URL,
     'base_route'   => CP_BASE_ROUTE,
     'docs_root'    => CP_DOCS_ROOT,
