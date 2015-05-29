@@ -48,6 +48,8 @@ class Page {
      */
     public function __construct($path) {
 
+        $path = str_replace(DIRECTORY_SEPARATOR, '/', $path);
+
         $this->path     = $path;
         $this->ext      = pathinfo($path, \PATHINFO_EXTENSION);
         $this->dir      = dirname($path);

@@ -11,8 +11,8 @@ class PageCollection implements \Iterator {
 
     protected $position = false;
 
-    protected $parent;
     protected $pages;
+    protected $chain;
 
     /**
      * [fromFolder description]
@@ -54,10 +54,11 @@ class PageCollection implements \Iterator {
      * [__construct description]
      * @param [type] $pages [description]
      */
-    public function __construct($pages) {
+    public function __construct($pages, $chain = null) {
 
         $this->pages    = $pages;
         $this->position = 0;
+        $this->chain    = $chain;
     }
 
     /**
@@ -250,6 +251,15 @@ class PageCollection implements \Iterator {
         $this->position = 0;
 
         return $this;
+    }
+
+    /**
+     * [end description]
+     * @return [type]           [description]
+     */
+    public function end() {
+
+        return $this->chain;
     }
 
     /**
